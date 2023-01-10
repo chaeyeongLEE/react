@@ -1,12 +1,11 @@
-import './App.css';
-import PropsExChild from './components/PropsExchild';
+import React from 'react';
+import StateEx3 from './components/StateEx3';
 
 function App() {
   return (
-    <div className="App">
-      <PropsExChild />
-    </div>
+      <StateEx3 />
   );
 }
 
 export default App;
+
