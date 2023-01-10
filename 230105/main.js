@@ -8,13 +8,15 @@ console.log(copyArr);
 
 console.log(arr === copyArr); */
 
-function foo(a,b,c,d,e,f,g) 
+function foo(a, b, c, d, e, f, g) {}
 
 const obj = {
   pororo: '뽀로로',
   lupy: '루피',
   crong: '크롱',
 };
+
+console.log('zm');
 
 const copyObj = { ...obj, lupy: 'lupy' };
 

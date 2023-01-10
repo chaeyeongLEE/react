@@ -1,10 +1,10 @@
-
-import StateEx2 from './components/StateEx2';
+import './App.css';
+import PropsExChild from './components/PropsExchild';
 
 function App() {
   return (
     <div className="App">
-    <StateEx2 />
+      <PropsExChild />
     </div>
   );
 }
