@@ -1,20 +1,20 @@
-// import React, { Component } from 'react'
+import React, { Component } from 'react'
 
-// export default class PropsEx2 extends Component {
-//    static defaultProps ={
-//     valid : "lo"
-//    }
-//     // onClick=()=>{
-//     //     console.log('콘솔 띄우기 성공!');
-//     // };
-//     render(){
-//         const {text, valid} = this.props;
-//         valid(){
-//             console.log('콘솔 띄우기 성공!');
-//         };
-//         return(
-//         <div>
-//         {props.text}
-//         <button onClick={props.valid}>메시지 출력</button>
-//   )
-// }
+export default class PropsEx2 extends Component {
+    // PropsEx2.defaultProps = {
+    //     text: '이건 기본 text props입니다.'
+    //   };
+    //   PropsEx2.propTypes = {
+    //     text: PropTypes.string};
+    render(){
+        const { text, valid } = this.props;
+        
+        return(
+            <div>
+                {text}
+                <button onClick={valid}>버튼</button>
+            </div>
+            
+  )
+}
+}
