@@ -1,10 +1,10 @@
 import './App.css';
-import ExShow from './components/ExShow';
+import ExConditional2 from './components/ExConditional2';
 
 function App() {
   return (
     <div className="App">
-      <ExShow />
+      <ExConditional2 />
     </div>
   );
 }

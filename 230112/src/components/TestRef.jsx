@@ -16,8 +16,7 @@ export default function TestRef() {
   return (
     <div>
         <h1>{text}</h1>
-        <input
-        ref={inputValue}
+        <input ref={inputValue}
         onChange={() => { onChangeText(); }} />
     </div>
   )
