@@ -1,12 +1,12 @@
 import './App.css';
-import ChangeFocus from './components/ChangeFocus';
+import ToDo from './components/ToDo';
 
 function App() {
   return (
     <div className="App">
-      <ChangeFocus />
+      <ToDo />
     </div>
-  )
+  );
 }
 
 export default App;
