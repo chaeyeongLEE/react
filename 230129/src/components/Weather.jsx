@@ -84,6 +84,7 @@ function Weather({ setCold }) {
         return <TiWeatherCloudy size="6rem" color="white" />;
     }
   };
+  
   return (
     <Wrapper>
       <div className="locationBox">
