@@ -34,7 +34,7 @@ export default function Show() {
     <>
     <Header> 당신의 개발자 MBTI 결과는 ?</Header>
     <Explaination>{explaination.text}</Explaination>
-    <Result>{result}</Result>
+    <Result> {result} </Result>
     <Additional>이건 재미로 읽어 보세요!</Additional>
     <AdditionalImg src={explaination.img} alt="팩폭" />
     <OrangeButton text="다시 검사하기" clickEvent={()=> dispatch(reset())} /> 

@@ -4,6 +4,7 @@ import TodoBoard from './TodoBoard';
 export default function Main() {
   const [inputValue, setInputValue] = useState('');
   const [todoList, setTodoList]= useState([]);
+
   //배열형태의 useState
 
   const addItem = ()=>{
@@ -11,6 +12,7 @@ export default function Main() {
     //...의 뜻은 기존 것을 유지하고 새로 추가한다는 뜻
   }
   
+
   return (
     <div>
       
