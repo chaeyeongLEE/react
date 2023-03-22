@@ -1,29 +1,11 @@
-import * as types from '../actions/ActionTypes'
+import weight from "./weight";
+import height from "./height";
 
+import { combineReducers } from "redux";
 
-const weight = 100;
-//const height = 155;
+const reducers = combineReducers({
+weight},
+ {height
+});
 
-function reducer(state = weight, action) {
-    if(types.PLUS){
-        state++;
-        return state;
-    } else if (types.MINUS) {
-        state--;
-        return state;
-      } else {
-        return state;
-      }
-}
-
-function reducer2(state = height, action) {
-    if (types.PLUSH) {
-      state++;
-      return state;
-    } else if (types.MINUS) {
-      state--;
-      return state;
-    } else {
-      return state;
-    }
-  }
+export default reducers;
