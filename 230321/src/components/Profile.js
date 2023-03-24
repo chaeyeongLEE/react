@@ -1,16 +1,25 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux'
+import index from '../reducers/index'
 import height from '../reducers/height'
 import weight from '../reducers/weight'
 
 export default function Profile() {
-    //const Counter = ({weight, height});
-    
-    const weight = useSelector((state)=>state.weight);
-    const height = useSelector((state)=>state.height);
-     
-    const dispatch = useDispatch();
+    // const weight = useSelector((state)=>state.weight);
+    // const height = useSelector((state)=>state.height);
+    const {weight, height} = useSelector(state=>({weight:state.weight, height:state.height}))
+   // const { a, b } = useSelector(state => ({ a: state.a, state.b }), [])
+  console.log('무게와 신장:',  weight, height);
+
+  const dispatch = useDispatch();
+  
+  const handlePlus = useCallback(()=> dispatch(plus()));
+  const handleMinus = useCallback(()=> dispatch(minus()));
+
+  const handlePlusH= useCallback(()=> dispatch(plush()));
+  const handleMinusH = useCallback(()=> dispatch(minush()));
+
 
   return (
     <div>
@@ -18,14 +27,19 @@ export default function Profile() {
         <p>무게 : {weight}</p>
         <p>키 : {height} </p>
         
-        <button
+        {/* <button
         onClick={() => {
           dispatch({ type: 'PLUS' });
         }}
       >
         몸무게 더하기
-      </button>
-      <button
+      </button> */}
+      <button onClick={handlePlus} value="+">몸무게더하기</button>
+      <button onClick={handleMinus}>몸무게빼기</button>
+      <hr />
+      <button onClick={handlePlusH}>키더하기</button>
+      <button onClick={handleMinusH}>키빼기</button>
+      {/* <button
         onClick={() => {
           dispatch({ type: 'MINUS' });
         }}
@@ -49,7 +63,7 @@ export default function Profile() {
       </button>
 
        
-        
+         */}
     </div>
   )
 }
