@@ -1,10 +1,6 @@
 import { PLUSH, MINUSH } from '../actions/ActionTypes';
 
-
-const initialState={
-    height : 155
-};
-
+const initialState = 155;
 
 // const height = (state=initialState, action)=>{
 
@@ -18,18 +14,19 @@ const initialState={
 //                 height:state.height -1
 //             };
 //         default:
-//             return state;    
+//             return state;
 //     }
 // }
 
-const height = (state=initialState, action)=>{
-const {type} = action;
-if (type === PLUSH){
-    return {...state, height:state.height+1}
-}
-if (type === MINUSH){
-    return {...state, height:state.height-1}
-} return state;
-}
+const height = (state = initialState, action) => {
+  const { type } = action;
+  if (type === PLUSH) {
+    return state + 1;
+  }
+  if (type === MINUSH) {
+    return state - 1;
+  }
+  return state;
+};
 
 export default height;

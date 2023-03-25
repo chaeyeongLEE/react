@@ -1,8 +1,8 @@
-import weight from "./weight";
-import height from "./height";
+import weight from './weight';
+import height from './height';
 
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-const reducers = combineReducers({weight, height});
+const reducers = combineReducers({ weight, height });
 
 export default reducers;
