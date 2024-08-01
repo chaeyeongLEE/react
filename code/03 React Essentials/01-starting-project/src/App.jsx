@@ -1,39 +1,18 @@
 import reactImg from './assets/react-core-concepts.png'
 import componentsImg from './assets/components.png';
+import {CORE_CONCEPTS} from './data.js';
+import Header from "./components/Header.jsx";
+import CoreConcept from "./components/CoreConcept.jsx";
 
-const reactDesc = ['Fundamental', 'Crucial', 'Core'];
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * (max + 1));
-}
-
-
-
-function Header() {
-    const description = reactDesc[getRandomInt(2)];
-
-    return (
-        <header>
-            <img src={reactImg} alt="Stylized atom"/>
-            <h1>React Essentials</h1>
-            <p>
-                {description} React concepts you will need for almost any app you are
-                going to build!
-            </p>
-        </header>
-    );
-}
-
-function CoreConcept(props) {
-    return (
-        <li>
-            <img src={props.image} alt={props.title} />
-            <h3>{props.title}</h3>
-            <p>{props.description}</p>
-        </li>
-    )
-}
-
+// function CoreConcept(props) {
+//     return (
+//         <li>
+//             <img src={props.image} alt={props.title} />
+//             <h3>{props.title}</h3>
+//             <p>{props.description}</p>
+//         </li>
+//     )
+// }
 
 function App() {
     return (
@@ -41,13 +20,12 @@ function App() {
             <Header />
             <main>
                 <section id="core-concepts">
-                <h2>Core Concepts</h2>
+                    <h2>Core Concepts</h2>
                     <ul>
-                        <CoreConcept title="Components" image={componentsImg} description="The core UI building block." />
-                        <CoreConcept />
-                        <CoreConcept />
-                        <CoreConcept />
-
+                        <CoreConcept title={CORE_CONCEPTS[0].title} image={CORE_CONCEPTS[0].image} description={CORE_CONCEPTS[0].description} />
+                        <CoreConcept title={CORE_CONCEPTS[1].title} image={CORE_CONCEPTS[1].image} description={CORE_CONCEPTS[1].description} />
+                        <CoreConcept {...CORE_CONCEPTS[2]} />
+                        <CoreConcept {...CORE_CONCEPTS[3]} />
                     </ul>
                 </section>
             </main>
