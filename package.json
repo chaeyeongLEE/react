@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "components": "^0.1.0",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.1",
+    "styled": "^1.0.0",
+    "styled-components": "^5.3.6"
+  },
+  "name": "react",
+  "description": "",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
