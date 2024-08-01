@@ -1,6 +1,7 @@
 import reactImg from './assets/react-core-concepts.png'
 import componentsImg from './assets/components.png';
 
+
 const reactDesc = ['Fundamental', 'Crucial', 'Core'];
 
 function getRandomInt(max) {
