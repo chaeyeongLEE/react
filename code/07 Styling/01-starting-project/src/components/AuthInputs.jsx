@@ -20,34 +20,44 @@ export default function AuthInputs() {
   const emailNotValid = submitted && !enteredEmail.includes('@');
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 
+  let [clickBtn, setClickBtn] = useState(false);
+
+  function isBtnClick() {
+     setClickBtn(!clickBtn);
+  }
   return (
-    <div id="auth-inputs">
-      <div className="controls">
-        <p>
-          <label>Email</label>
-          <input
-            type="email"
-            className={emailNotValid ? 'invalid' : undefined}
-            onChange={(event) => handleInputChange('email', event.target.value)}
-          />
-        </p>
-        <p>
-          <label>Password</label>
-          <input
-            type="password"
-            className={passwordNotValid ? 'invalid' : undefined}
-            onChange={(event) =>
-              handleInputChange('password', event.target.value)
-            }
-          />
-        </p>
+      <div id="auth-inputs">
+        <div>
+          <p className={clickBtn? 'active' : ''}>Style me!</p>
+          <button onClick={isBtnClick}>Toggle style</button>
+        </div>
+        <div className="controls">
+          <p>
+            <label className={`label ${emailNotValid ? 'invalid' : ''}`}>Email</label>
+            <input
+                type="email"
+                // className={emailNotValid ? 'invalid' : undefined}
+                style={{backgroundColor: emailNotValid ? '#fed2d2' : '#d1d5db'}}
+                onChange={(event) => handleInputChange('email', event.target.value)}
+            />
+          </p>
+          <p>
+            <label className={`label ${emailNotValid ? 'invalid' : ''}`}>PASSWORD</label>
+            <input
+                type="password"
+                className={passwordNotValid ? 'invalid' : undefined}
+                onChange={(event) =>
+                    handleInputChange('password', event.target.value)
+                }
+            />
+          </p>
+        </div>
+        <div className="actions">
+          <button type="button" className="text-button">
+            Create a new account
+          </button>
+          <button className='button' onClick={handleLogin}>Sign In</button>
+        </div>
       </div>
-      <div className="actions">
-        <button type="button" className="text-button">
-          Create a new account
-        </button>
-        <button className='button' onClick={handleLogin}>Sign In</button>
-      </div>
-    </div>
   );
 }
