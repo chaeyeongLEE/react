@@ -113,7 +113,7 @@ label.invalid {
 
 input.invalid {
   color: #ef4444;
-  border-color: #f73f3f;
+  border-color: #`;
   background-color: #fed2d2;
 }
 
@@ -145,4 +145,11 @@ input.invalid {
 
 .text-button:hover {
   color: #f0920e;
+}
+
+.active {
+  background-color: orange;
+  padding: 0.5rem;
+  border-radius: 4px;
+  color: black;
 }
