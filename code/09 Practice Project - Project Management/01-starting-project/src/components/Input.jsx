@@ -7,12 +7,12 @@ export default function Input({element, isChange, isRef, labelName, type}) {
         gap: 0.2rem;
 
         & input {
-            width: 400px;
+            width: 550px;
             background-color: #d5d5d5;
             border-bottom: 1px solid #777676;
         }
         & textarea {
-            width: 400px;
+            width: 550px;
             background-color: #d5d5d5;
         }
     `

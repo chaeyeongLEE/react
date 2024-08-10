@@ -29,14 +29,18 @@ export default function AddProject({getData}) {
     console.log('getData:', getData)
     return (
         <>
-            <p>getData: {getData}</p>
             {/*프로젝트 선택안한 경우*/}
             {getData !== 0 ? <Div>
                 <img src={logo} alt="No Project Selected"/>
                 <h1>No Project Selected</h1>
                 <span>Select a project or get started with a new one</span>
                 <Button btnName="Create new project"/>
-            </Div> : <Div>
+            </Div> :
+            <Div>
+                <div style={{display: "flex", flexDirection:"row", gap: '15px', justifyContent: "flex-end", marginLeft:"auto", marginRight:"80px"}}>
+                    <Button btnName="Cancel"></Button>
+                    <Button btnName="Save"></Button>
+                </div>
                 <Input element="input" labelName="TITLE" type="text"/>
                 <Input element="textarea" labelName="DESCRIPTION"/>
                 <Input element="input" labelName="DUE DATE" type="date"/>
