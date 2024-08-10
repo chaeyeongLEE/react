@@ -1,7 +1,9 @@
 import logo from '../assets/no-projects.png'
 import {styled} from "styled-components";
+import Button from "./Button.jsx";
+import Input from "./Input.jsx";
 
-export default function AddProject() {
+export default function AddProject({getData}) {
     const Div = styled.div`
         display: flex;
         padding: 3rem;
@@ -23,29 +25,25 @@ export default function AddProject() {
         & span {
             color: #8a8888;
         }
-        & button {
-            padding: 0.4rem;
-            border-radius: 0.6rem;
-            color: #ffffff;
-            background-color: #8a8888;
-        }
-        & button:hover {
-            opacity: 0.7;
-            transition: all 0.31s ease-in-out;
-        }
-        
-        
-        
     `
-
+    console.log('getData:', getData)
     return (
-        // 프로젝트 선택안한 경우
-        <Div>
-            <img src={logo} alt="No Project Selected" />
-            <h1>No Project Selected</h1>
-            <span>Select a project or get started with a new one</span>
-            <button>Create new project</button>
-        </Div>
-        // 프로젝트 선택한 경우
+        <>
+            <p>getData: {getData}</p>
+            {/*프로젝트 선택안한 경우*/}
+            {getData !== 0 ? <Div>
+                <img src={logo} alt="No Project Selected"/>
+                <h1>No Project Selected</h1>
+                <span>Select a project or get started with a new one</span>
+                <Button btnName="Create new project"/>
+            </Div> : <Div>
+                <Input element="input" labelName="TITLE" type="text"/>
+                <Input element="textarea" labelName="DESCRIPTION"/>
+                <Input element="input" labelName="DUE DATE" type="date"/>
+            </Div>
+            }
+            {/* 프로젝트 선택한 경우*/}
+        </>
+
     );
 };
