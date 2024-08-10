@@ -8,21 +8,31 @@ export default function TimerChallenge({title, targetTIme}) {
     const [timerStart, setTimerStart] = useState(false);
     const [timerExpired, setTimerExpired] = useState(false);
 
+    const [timeRemaining, setTimeRemaining] = useState(targetTIme * 1000);
+    const  timerIsActive = timeRemaining > 0 && timeRemaining < targetTIme *1000;
+    if( timeRemaining <= 0) {
+        clearInterval(timer.current);
+        setTimeRemaining(targetTIme*1000);
+    }
     function handleStart() {
-        timer.current = setTimeout(()=> {
-            setTimerExpired(true);
+        timer.current = setInterval(()=> {
+            setTimeRemaining(prevTimeRemaining => prevTimeRemaining -10);
             dialog.current.showModal();
-        }, targetTIme * 1000);
+        }, 10);
+
         setTimerStart(true);
     };
 
     function handleStop() {
-        clearTimeout(timer.current)
+        clearInterval(timer.current)
     }
 
+    function handleReset() {
+        setTimeRemaining(targetTIme*1000);
+    }
     return (
         <>
-            <ResultModal ref={dialog} result="lose" targetTime={targetTIme} />
+            <ResultModal ref={dialog} targetTime={targetTIme} remainingTime={timeRemaining} onReset={handleReset}/>
             <section className="challenge">
                 <h2>{title}</h2>
                 {timerExpired && <p>You lose!</p> }
@@ -30,13 +40,13 @@ export default function TimerChallenge({title, targetTIme}) {
                     {targetTIme} second{targetTIme > 1 ? 's' : ''}
                 </p>
                 <p>
-                    <button onClick={timerStart ? handleStop : handleStart}>
-                        {timerStart ?'stop' : 'start' } challenge
+                    <button onClick={timerIsActive ? handleStop : handleStart}>
+                        {timerIsActive ?'stop' : 'start' } challenge
                     </button>
                 </p>
-                <p className={timerStart? 'active' : undefined}>
+                <p className={timerIsActive? 'active' : undefined}>
                     <button>
-                        {timerStart? 'timer is running' : 'timer is unactive'}
+                        {timerIsActive? 'timer is running' : 'timer is unactive'}
                     </button>
                 </p>
             </section>
