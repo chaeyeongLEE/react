@@ -43,6 +43,7 @@ export default function SideBar({ getData, newProject, clickTitle }) {
     };
 
     return (
+        // 내가 작성한 코드
         <Div>
             <h2>Your Projects</h2>
             <Button btnName="+Add project" onClick={isAddProjectBtn} />
@@ -56,5 +57,15 @@ export default function SideBar({ getData, newProject, clickTitle }) {
                 <p>No projects available.</p>
             )}
         </Div>
-    );
+
+        // 강의상 코드
+        // <aside>
+        //     <h2>Your Projects</h2>
+        //     <div>
+        //         <button>+Add project</button>
+        //     </div>
+        //     <ul></ul>
+        // </aside>
+)
+    ;
 }

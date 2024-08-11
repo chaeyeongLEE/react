@@ -25,3 +25,4 @@ export default function Input({element, isChange, isRef, labelName, type, name, 
         }
     </Div>
 };
+
