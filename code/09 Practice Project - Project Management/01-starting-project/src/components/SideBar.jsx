@@ -28,14 +28,18 @@ const TitleButton = styled.button`
     }
 `;
 
-export default function SideBar({ getData, newProject }) {
+export default function SideBar({ getData, newProject, clickTitle }) {
     function isAddProjectBtn() {
         let clickData = 0;
         getData(clickData);
     }
 
-    const handleTitleClick = (title) => {
-        alert(`Clicked on: ${title}`);
+    const handleTitleClick = (project) => {
+        // newProject가 있으면 , clickData 2를 보내라
+        let clickData  = 2;
+        getData(clickData);
+        clickTitle(project);
+        console.log(`Clicked on: ${project}`);
     };
 
     return (
@@ -44,7 +48,7 @@ export default function SideBar({ getData, newProject }) {
             <Button btnName="+Add project" onClick={isAddProjectBtn} />
             {newProject.length > 0 ? (
                 newProject.map((project, index) => (
-                    <TitleButton key={index} onClick={() => handleTitleClick(project.TITLE)}>
+                    <TitleButton key={index} onClick={() => handleTitleClick(project)}>
                         {project.TITLE}
                     </TitleButton>
                 ))

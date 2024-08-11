@@ -6,7 +6,7 @@ import {styled} from "styled-components";
         gap: 0.2rem;
 
         & input {
-            width: 500px;
+            width: 450px;
             background-color: #d5d5d5;
             border-bottom: 1px solid #777676;
         }

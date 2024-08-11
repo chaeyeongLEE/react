@@ -26,37 +26,23 @@ const Div = styled.div`
             color: #8a8888;
         }
     `
-export default function AddProject({getData , newProject}) {
 
-    // const [project, setProject] = useState({
-    //     TITLE:'', DESCRIPTION:'', DUEDATE:'2024-08-11'
-    // })
-    // const [project, setProject] = useState([]);
-    //
-    //
-    // const handleChange = (e) => {
-    //     const {name , value} = e.target;
-    //     setProject(prevProject => ({...prevProject, [name]: value}));
-    // }
-    //
-    // function saveProject(project) {
-    //     console.log('project:', project)
-    //
-    //     if (project.TITLE !== '') {
-    //         // let newData = {...project};
-    //         project.push()
-    //         newProject(newData);
-    //
-    //     }
-    //     alert(JSON.stringify(project.TITLE) + ' 등록에 성공하였습니다.');
-    // }
-
-    // const inputValue = useRef();
-    //
-    // function onChangeText(){
-    //     console.log(inputValue);
-    //     setProject(inputValue.current.value);
-    // }
+const Div2 = styled.div`
+        display: flex;
+        margin-top: 1rem;
+        padding: 3rem;
+        height: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0.8rem;
+    
+        & h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+    `
+export default function AddProject({getData , newProject, clickTitle}) {
     const [projects, setProjects] = useState([]);
 
     // 입력 필드의 값을 관리
@@ -66,6 +52,13 @@ export default function AddProject({getData , newProject}) {
         DUEDATE: '2024-08-11'
     });
 
+    // task 입력값
+    const [task, setTask] = useState('');
+    const inputTask = useRef();
+    function onChangeText() {
+        console.log(inputTask);
+        setTask(inputTask.current.value);
+    }
     // 입력 필드의 값 변경을 처리하는 함수
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -90,15 +83,18 @@ export default function AddProject({getData , newProject}) {
             alert('프로젝트의 TITLE 또는 DESCRIPTION을 입력하세요.');
         }
     };
+
+
     return (
         <>
             {/*프로젝트 선택안한 경우*/}
-            {getData !== 0 ? <Div>
+            {getData === 1 && <Div>
                 <img src={logo} alt="No Project Selected"/>
                 <h1>No Project Selected</h1>
                 <span>Select a project or get started with a new one</span>
                 <Button btnName="Create new project"/>
-            </Div> :
+            </Div> }
+            {getData === 0 &&
             <Div>
                 <div style={{
                     display: "flex",
@@ -117,7 +113,27 @@ export default function AddProject({getData , newProject}) {
                 <Input element="input" labelName="DUE DATE" type="date" isChange={handleChange} name="DUEDATE" value={inputValues.DUEDATE} />
             </Div>
             }
-            {/* 프로젝트 선택한 경우*/}
+            {getData ===2 &&
+                <Div2>
+                    <section>
+                        <h2>
+                            {clickTitle.TITLE}
+                        </h2>
+                        <p>{clickTitle.DUEDATE}</p>
+                        <span>{clickTitle.DESCRIPTION}</span>
+                        <hr/>
+                    </section>
+                    <section>
+                        <h2>TASK</h2>
+                        <div style={{display: 'flex', flexDirection:'row', gap: '15px'}}>
+                            <Input element="input" type="text" isRef={inputTask} isChange={()=> {
+                                onChangeText();
+                            }} />
+                            <Button btnName="Add Task" />
+                        </div>
+
+                    </section>
+                </Div2>}
         </>
 
     );
