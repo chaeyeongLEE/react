@@ -1,8 +1,7 @@
 import Button from "./Button.jsx";
 import {styled} from "styled-components";
 
-export default function SideBar({getData}) {
-    const Div = styled.div`
+const Div = styled.div`
         display: flex;
         flex-direction: column;
         color: #ffffff;
@@ -15,14 +14,13 @@ export default function SideBar({getData}) {
         padding: 2rem;
         gap: 1.3rem;
     `
-    //props를 통해서 전달해라 값을. 0을 보내면 add...
-
-
+export default function SideBar({getData, newProject}) {
     function isAddProjectBtn() {
         let clickData = 0;
         getData(clickData);
     }
     return <Div>
+        <p>new: {newProject.TITLE}</p>
         <h2>Your Projects</h2>
         <Button btnName="+Add project" onClick={isAddProjectBtn} />
     </Div>

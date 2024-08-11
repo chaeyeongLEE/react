@@ -16,7 +16,7 @@ import {useState} from "react";
     `;
 
 function App() {
-    const [currentState, setCurrentState] = useState(0);
+    const [newProject, setNewProject] = useState({});
     const [data, setData] = useState(1);
     // data :1 => 초기 아무것도 선택되지않았을 때
     // data :0 => 초기 아무것도 선택되지않았을 때
@@ -25,13 +25,17 @@ function App() {
         setData(childData);
     };
 
+    const getProject = (project) => {
+        setNewProject(project);
+    };
+
     return (
         <Div>
             <SideBarWrapper>
-                <SideBar getData={getData} />
+                <SideBar getData={getData} newProject={newProject} />
             </SideBarWrapper>
             <AddProjectWrapper>
-                <AddProject getData={data} />
+                <AddProject getData={data} newProject={getProject} />
             </AddProjectWrapper>
         </Div>
     );

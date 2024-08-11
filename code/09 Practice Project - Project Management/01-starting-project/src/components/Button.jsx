@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 
-export default function Button({btnName, onClick}) {
-    const Button = styled.button`
+const Buttons = styled.button`
         padding: 0.4rem;
         border-radius: 0.4rem;
         color: #ffffff;
@@ -13,7 +12,8 @@ export default function Button({btnName, onClick}) {
             transition: all 0.31s ease-in-out;
         }
     `
+export default function Button({btnName, onClick}) {
     return (
-        <Button onClick={onClick}>{btnName}</Button>
+        <Buttons onClick={onClick}>{btnName}</Buttons>
     );
 };
