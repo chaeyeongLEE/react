@@ -16,7 +16,7 @@ import {useState} from "react";
     `;
 
 function App() {
-    const [newProject, setNewProject] = useState({});
+    const [newProject, setNewProject] = useState([]);
     const [data, setData] = useState(1);
     // data :1 => 초기 아무것도 선택되지않았을 때
     // data :0 => 초기 아무것도 선택되지않았을 때
@@ -25,8 +25,9 @@ function App() {
         setData(childData);
     };
 
-    const getProject = (project) => {
-        setNewProject(project);
+    const getProject = (projects) => {
+        setNewProject(projects);
+        console.log('projects:', projects)
     };
 
     return (
