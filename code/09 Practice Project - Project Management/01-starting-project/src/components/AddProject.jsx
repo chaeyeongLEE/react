@@ -53,11 +53,16 @@ export default function AddProject({getData , newProject, clickTitle}) {
     });
 
     // task 입력값
-    const [task, setTask] = useState('');
+    const [task, setTask] = useState([]);
     const inputTask = useRef();
+
     function onChangeText() {
-        console.log(inputTask);
-        setTask(inputTask.current.value);
+        const newTask = inputTask.current.value.trim();
+        // 새로운 task 값을 현재 task 배열에 추가
+        setTask(prevTask => [...prevTask, newTask]);
+        console.log("Added task:", newTask);
+        // 입력 필드를 초기화
+        inputTask.current.value = '';
     }
     // 입력 필드의 값 변경을 처리하는 함수
     const handleChange = (e) => {
@@ -84,6 +89,10 @@ export default function AddProject({getData , newProject, clickTitle}) {
         }
     };
 
+    function isAddTask() {
+        let taskList = {...task}
+
+    }
 
     return (
         <>
@@ -125,13 +134,15 @@ export default function AddProject({getData , newProject, clickTitle}) {
                     </section>
                     <section>
                         <h2>TASK</h2>
-                        <div style={{display: 'flex', flexDirection:'row', gap: '15px'}}>
-                            <Input element="input" type="text" isRef={inputTask} isChange={()=> {
-                                onChangeText();
-                            }} />
-                            <Button btnName="Add Task" />
+                        <div style={{display: 'flex', flexDirection: 'row', gap: '15px'}}>
+                            <Input element="input" type="text" isRef={inputTask}/>
+                            <Button btnName="Add Task" onClick={onChangeText}/>
                         </div>
-
+                        <div>
+                            {task.map((task, index) => (
+                                <span key={index}>{task}</span>
+                            ))}
+                        </div>
                     </section>
                 </Div2>}
         </>
